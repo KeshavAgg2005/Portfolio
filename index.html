@@ -210,24 +210,46 @@
 
         <!-------------------------- Contact Me -------------------------->
 
-    <section class="contact-content" id="contact">
-        <div class="container">
-            <div class="contact-title">
-                <h4>Contact Me</h4>
-                <p>Get In Touch</p>
+        <section class="contact-content" id="contact">
+            <div class="container">
+                <div class="contact-title">
+                    <h4>Contact Me</h4>
+                    <p>Get In Touch</p>
+                </div>
+                <div class="contact">
+                    <form name="submitToGoogleSheet" autocomplete="on">
+                        <input type="text" name="NAME" placeholder="Name" required autocomplete="name">
+                        <input type="email" name="EMAIL" placeholder="Email" required autocomplete="email">
+                        <input type="text" name="SUBJECT" placeholder="Subject" autocomplete="off">
+                        <textarea name="MESSAGE" placeholder="Message" autocomplete="off"></textarea>
+                        <input type="submit" value="Send Message" class="submit">
+                    </form>
+                    <span id="msg"></span>
+                    
+                </div>
             </div>
-            <div class="contact">
-                <form name="submitToGoogleSheet" autocomplete="on">
-                    <input type="text" name="NAME" placeholder="Name" required autocomplete="name">
-                    <input type="email" name="EMAIL" placeholder="Email" required autocomplete="email">
-                    <input type="text" name="SUBJECT" placeholder="Subject" autocomplete="off">
-                    <textarea name="MESSAGE" placeholder="Message" autocomplete="off"></textarea>
-                    <input type="submit" value="Send Message" class="submit">
-                </form>
-                <span id="msg"></span>
-            </div>
-        </div>
-    </section>
+        </section>
+        
+    <!-------------------------- Footer section -------------------------->
+   <footer class="footer">
+    <small class="message">Thanks for visiting and happy coding!</small>
+    <small class="copyright">&copy; Copyright 2023. All rights reserved.</small>
+   </footer>
+   <script>
+    function sendForm() {
+        var formData = new FormData(document.getElementById('contact-form'));
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzEMBkODc-qc4ZbcGLOrxFEFZ8Bd58AkHm6-NxvnIm7pyttajdTG_f0JcNaU14e5BBagw/exec', true); // Replace with your Google Apps Script web app URL
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert('Form submitted successfully!');
+            } else {
+                alert('An error occurred!');
+            }
+        };
+        xhr.send(formData);
+    }
+</script>
         
     <!-------------------------- JS -------------------------->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -235,11 +257,6 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
     
-    <!-------------------------- Footer section -------------------------->
-   <footer class="footer">
-    <small class="message">Thanks for visiting and happy coding!</small>
-    <small class="copyright">&copy; Copyright 2023. All rights reserved.</small>
-   </footer>
-
+    
 </body>
 </html>
