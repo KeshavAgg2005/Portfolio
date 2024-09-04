@@ -82,30 +82,29 @@ $(document).ready(function() {
   //         .catch(error => console.error('Error!', error.message))
   // })
   document.addEventListener('DOMContentLoaded', () => {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwBfV6rX8BUTEpYm8KD08yV_bx35zwWxAcJlNQSj99qalF9tXBgy2KVxQwYjl9JqNFUjA/exec'; // Your URL here
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwBfV6rX8BUTEpYm8KD08yV_bx35zwWxAcJlNQSj99qalF9tXBgy2KVxQwYjl9JqNFUjA/exec'; // Replace with your actual URL
     const form = document.forms['submitToGoogleSheet'];
     const msg = document.getElementById("msg");
 
     form.addEventListener('submit', e => {
-        e.preventDefault(); // Prevent the default form submission
+        e.preventDefault();
 
         const formData = new FormData(form);
 
-        console.log('Form Data:', [...formData.entries()]); // Log the form data
-
+        console.log('Form Data:', [...formData.entries()]);
         fetch(scriptURL, {
             method: 'POST',
-            body: formData
+            body: new FormData(form)
         })
         .then(response => {
             if (response.ok) {
-                return response.text(); // Read response as text
+                return response.text(); // Or response.json() if you expect JSON response
             } else {
                 throw new Error('Network response was not ok.');
             }
         })
         .then(text => {
-            console.log('Response text:', text); // Log the response
+            console.log('Response text:', text); // Log the response for debugging
             msg.innerHTML = "Message sent successfully";
             setTimeout(() => {
                 msg.innerHTML = "";
@@ -113,12 +112,11 @@ $(document).ready(function() {
             form.reset();
         })
         .catch(error => {
-            console.error('Error!', error.message); // Log the error
+            console.error('Error!', error.message);
             msg.innerHTML = "Error sending message.";
         });
     });
 });
-
     
   });
   
