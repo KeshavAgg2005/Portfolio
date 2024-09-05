@@ -150,6 +150,12 @@ profile-photo .img{
   color: #fed700;
   font-size: 3rem; 
 }
+/* Adjust font size for smaller screens */
+@media (max-width: 768px) {
+  .profile-text h1 {
+    font-size: 2rem; /* Or any size that fits well on mobile */
+  }
+}
 .profile-text p{
   color:#e5e5e5;
 }
