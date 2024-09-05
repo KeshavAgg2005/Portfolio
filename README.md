@@ -1,2 +1,4 @@
-![Preview Img](files/img1.png)
-![Preview Img](files/img2.png)
+<p>
+  <img src="Files/img1.png" alt="Preview Img 1" width="45%" style="display:inline-block;"/>
+  <img src="Files/img2.png" alt="Preview Img 2" width="45%" style="display:inline-block;"/>
+</p>
