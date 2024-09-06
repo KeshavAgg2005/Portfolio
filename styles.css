@@ -247,7 +247,7 @@ profile-photo .img{
   display: flex;
   border-radius: 5px;
   height: 400px;
-  margin-bottom: 250px;
+  margin-bottom: 500px;
 }
 
 .education-content .title{
@@ -322,15 +322,15 @@ profile-photo .img{
 .education-content .row .timeline-text{
   line-height: 25px;
   font-size: 16px;
-  text-align: justify;
+  text-align: left;
 }
 
 
 
 /*---------------------------Projects---------------------------*/
+
 .project-content{
   padding: 90px 0;
-  /* color:#fff;  */
 }
 .project-title{
   margin-bottom: 60px;
